@@ -1,0 +1,73 @@
+<html>
+  <script>
+    var headerHeight;
+var ballSpecs;
+
+window.onresize = function(event) {
+  resize();
+};
+
+function startup(){
+  ballSpecs=[];
+  for (i=0;i<500;i+=5){
+    ballSpecs.push(Math.random()*window.innerWidth,Math.random()*window.innerHeight,Math.random()*3-1,Math.random()*3-1,Math.random()*30+10);
+  }
+  resize();
+}
+
+function resize(){
+  headerHeight=window.innerHeight/2;
+  if (headerHeight>150){headerHeight=150;}
+  document.getElementById("canvas").height=headerHeight;
+  document.getElementById("canvas").width=window.innerWidth;
+  document.getElementById("header").style.height=""+headerHeight+"px";
+  document.getElementById("logo").style.height=""+headerHeight*0.8+"px";
+  document.getElementById("logo").style.width=""+headerHeight*0.8+"px";
+  document.getElementById("logo").style.left=""+headerHeight/8+"px";
+  document.getElementById("logo").style.top=""+headerHeight/10+"px";
+  document.getElementById("container").style.top=""+(headerHeight+30)+"px";
+  document.getElementById("title").style.fontSize=""+headerHeight/3+"px";
+  document.getElementById("title").style.top=""+(headerHeight/6+headerHeight/8)+"px";
+  //document.getElementById("pic1").style.height=""+(window.innerWidth*0.28*9/16)+"px";
+  var topVal=window.innerWidth*0.28*9/16-15;
+  document.getElementById("desc1").style.top=""+topVal+"px";
+  document.getElementById("desc2").style.top=""+topVal+"px";
+  document.getElementById("desc3").style.top=""+topVal+"px";
+  paint();
+}
+  </script>
+  <body onload=startup()>
+    <header id="header">
+      <canvas id="canvas"></canvas>
+      <pgTitle id="title"><tb>Web</tb>Simulation using html,css &js</pgTitle>
+    </header>
+    <container id="container">
+      <div id="showcase">
+        <pic style="background-image:url(https://www.dropbox.com/s/pfuiq092vrmjkup/choose1.png?raw=1)"></pic>
+        <desc id="desc1">
+          <h1>Web simulations</h1>
+          <p>Web simulation is the invocation of computer simulation services over  the world wide web ,specifically through the web browser.<br><br>Unfortunately, these are bulky Java programs that require downloading to view them. Therefore two web-based versions were written in JavaScript to give easy access to these programs.</p>
+        </desc>
+      </div>
+      <div id="showcase">
+        <pic style="background-image:url(https://www.dropbox.com/s/xvpfaelxcvb9yg5/choose2.png?raw=1)"></pic>
+        <!--<inset id="in1">
+        </inset>-->
+        <desc id="desc2">
+          <h1>Scientific paper</h1>
+          <p>This project started as an assignment project, so naturally there is a paper on the subject which explains the background, function, and applications of computer simulations.<br><br>The entire project is about web simulations.</p>
+        </desc>
+      </div>
+      <div id="showcase">
+        <pic style="background-image:url(https://www.dropbox.com/s/by5qg5yqglgmqib/choose3.png?raw=1)"></pic>
+        <!--<inset id="in1">
+        </inset>-->
+        <desc id="desc3">
+          <h1>Downloads</h1>
+          <p>All files associated with this project can be found here for download.<br><br>This includes .jar files for the simulations, java source code, .html, .css and .js source code, and infographics.</p>
+        </desc>
+      </div>
+    </container>
+    <credits>Thankyou</credits>
+  </body>
+</html>
